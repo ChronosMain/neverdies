@@ -27,7 +27,7 @@ public class Cosmetics
     private final ResourceLocation santaHatTexture = new ResourceLocation("textures/santahat.png");
 
     public Cosmetics() {
-        super("Cosmetics", "Bitch", Module.Category.RENDER, true, false, false);
+        super("Cosmetics", "Bitch", Module.Category.RENDER, true, true, false);
         INSTANCE = this;
     }
 

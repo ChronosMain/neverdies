@@ -9,7 +9,7 @@ public class VanillaSpeed
     public Setting<Double> speed = this.register(new Setting<Double>("Speed", 1.0, 1.0, 10.0));
 
     public VanillaSpeed() {
-        super("VanillaSpeed", "ec.me", Module.Category.MOVEMENT, true, false, false);
+        super("VanillaSpeed", "ec.me", Module.Category.MOVEMENT, true, true, false);
     }
 
     @Override

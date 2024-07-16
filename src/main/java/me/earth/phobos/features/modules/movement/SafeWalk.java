@@ -9,7 +9,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class SafeWalk
         extends Module {
     public SafeWalk() {
-        super("SafeWalk", "Walks safe", Module.Category.MOVEMENT, true, false, false);
+        super("SafeWalk", "Walks safe", Module.Category.MOVEMENT, true, true, false);
     }
 
     @SubscribeEvent

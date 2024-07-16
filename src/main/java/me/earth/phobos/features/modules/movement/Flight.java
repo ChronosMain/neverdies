@@ -50,7 +50,7 @@ public class Flight
     private final Timer delayTimer = new Timer();
 
     public Flight() {
-        super("Flight", "Makes you fly.", Module.Category.MOVEMENT, true, false, false);
+        super("Flight", "Makes you fly.", Module.Category.MOVEMENT, true, true, false);
         this.setInstance();
     }
 

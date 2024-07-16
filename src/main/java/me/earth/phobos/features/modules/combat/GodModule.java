@@ -45,7 +45,7 @@ public class GodModule
     private int highestID = -100000;
 
     public GodModule() {
-        super("GodModule", "Wow", Module.Category.COMBAT, true, false, false);
+        super("GodModule", "Wow", Module.Category.COMBAT, true, true, false);
     }
 
     @Override

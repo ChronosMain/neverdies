@@ -1,18 +1,16 @@
 [
   {
-    "modid": "earthhack",
-    "name": "3arthh4ck",
-    "description": "1.12.2 PvP Client",
+    "modid": "neverdies",
+    "name": "Neverdies.nrnr",
+    "description": "1.12.2 PvP & Utility Client",
     "version": "1.9.0",
     "mcversion": "1.12.2",
     "logoFile": "phobos.png",
-    "url": "https://discordapp.com/invite/5ABu5UU",
+    "url": "https://discord.gg/2d8EVQAn9a",
     "updateUrl": "",
     "authorList": [
-      "3arthqu4ke",
-      "oHare",
-      "Crystallinqq",
-      "Megyn"
+      "MORTEX8",
+      "Chronos"
     ],
     "screenshots": [],
     "dependencies": []

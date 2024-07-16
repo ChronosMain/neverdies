@@ -18,7 +18,7 @@ public class HoleTP
     private boolean jumped = false;
 
     public HoleTP() {
-        super("HoleTP", "Teleports you in a hole.", Module.Category.MOVEMENT, true, false, false);
+        super("HoleTP", "Teleports you in a hole.", Module.Category.MOVEMENT, true, true, false);
         this.setInstance();
     }
 

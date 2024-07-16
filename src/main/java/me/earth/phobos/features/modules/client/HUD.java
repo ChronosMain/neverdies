@@ -38,31 +38,31 @@ public class HUD
     private static HUD INSTANCE = new HUD();
     private final Setting<Boolean> renderingUp = this.register(new Setting<Boolean>("RenderingUp", Boolean.valueOf(false), "Orientation of the HUD-Elements."));
     private final Setting<WaterMark> watermark = this.register(new Setting<WaterMark>("Logo", WaterMark.NONE, "WaterMark"));
-    private final Setting<String> customWatermark = this.register(new Setting<String>("WatermarkName", "megyn.club b1"));
+    private final Setting<String> customWatermark = this.register(new Setting<String>("WatermarkName", "Neverdies"));
     private final Setting<Boolean> modeVer = this.register(new Setting<Object>("Version", Boolean.valueOf(false), v -> this.watermark.getValue() != WaterMark.NONE));
-    private final Setting<Boolean> arrayList = this.register(new Setting<Boolean>("ActiveModules", Boolean.valueOf(false), "Lists the active modules."));
+    private final Setting<Boolean> arrayList = this.register(new Setting<Boolean>("ActiveModules", Boolean.valueOf(true), "Lists the active modules."));
     private final Setting<Boolean> moduleColors = this.register(new Setting<Object>("ModuleColors", Boolean.valueOf(false), v -> this.arrayList.getValue()));
     private final Setting<Boolean> alphabeticalSorting = this.register(new Setting<Object>("AlphabeticalSorting", Boolean.valueOf(false), v -> this.arrayList.getValue()));
     private final Setting<Boolean> serverBrand = this.register(new Setting<Boolean>("ServerBrand", Boolean.valueOf(false), "Brand of the server you are on."));
-    private final Setting<Boolean> ping = this.register(new Setting<Boolean>("Ping", Boolean.valueOf(false), "Your response time to the server."));
+    private final Setting<Boolean> ping = this.register(new Setting<Boolean>("Ping", Boolean.valueOf(true), "Your response time to the server."));
     private final Setting<Boolean> tps = this.register(new Setting<Boolean>("TPS", Boolean.valueOf(false), "Ticks per second of the server."));
     private final Setting<Boolean> fps = this.register(new Setting<Boolean>("FPS", Boolean.valueOf(false), "Your frames per second."));
-    private final Setting<Boolean> coords = this.register(new Setting<Boolean>("Coords", Boolean.valueOf(false), "Your current coordinates"));
-    private final Setting<Boolean> direction = this.register(new Setting<Boolean>("Direction", Boolean.valueOf(false), "The Direction you are facing."));
+    private final Setting<Boolean> coords = this.register(new Setting<Boolean>("Coords", Boolean.valueOf(true), "Your current coordinates"));
+    private final Setting<Boolean> direction = this.register(new Setting<Boolean>("Direction", Boolean.valueOf(true), "The Direction you are facing."));
     private final Setting<Boolean> speed = this.register(new Setting<Boolean>("Speed", Boolean.valueOf(false), "Your Speed"));
-    private final Setting<Boolean> potions = this.register(new Setting<Boolean>("Potions", Boolean.valueOf(false), "Active potion effects"));
+    private final Setting<Boolean> potions = this.register(new Setting<Boolean>("Potions", Boolean.valueOf(true), "Active potion effects"));
     private final Setting<Boolean> altPotionsColors = this.register(new Setting<Object>("AltPotionColors", Boolean.valueOf(false), v -> this.potions.getValue()));
-    private final Setting<Boolean> armor = this.register(new Setting<Boolean>("Armor", Boolean.valueOf(false), "ArmorHUD"));
+    private final Setting<Boolean> armor = this.register(new Setting<Boolean>("Armor", Boolean.valueOf(true), "ArmorHUD"));
     private final Setting<Boolean> durability = this.register(new Setting<Boolean>("Durability", Boolean.valueOf(false), "Durability"));
     private final Setting<Boolean> percent = this.register(new Setting<Object>("Percent", Boolean.valueOf(true), v -> this.armor.getValue()));
     private final Setting<Boolean> totems = this.register(new Setting<Boolean>("Totems", Boolean.valueOf(false), "TotemHUD"));
     private final Setting<Boolean> queue = this.register(new Setting<Boolean>("2b2tQueue", Boolean.valueOf(false), "Shows the 2b2t queue."));
     private final Setting<Greeter> greeter = this.register(new Setting<Greeter>("Greeter", Greeter.NONE, "Greets you."));
-    private final Setting<String> spoofGreeter = this.register(new Setting<Object>("GreeterName", "3arthqu4ke", v -> this.greeter.getValue() == Greeter.CUSTOM));
+    private final Setting<String> spoofGreeter = this.register(new Setting<Object>("GreeterName", "lll", v -> this.greeter.getValue() == Greeter.CUSTOM));
     private final Setting<LagNotify> lag = this.register(new Setting<LagNotify>("Lag", LagNotify.GRAY, "Lag Notifier"));
     private final Setting<Boolean> hitMarkers = this.register(new Setting<Boolean>("HitMarkers", true));
     private final Setting<Sound> sound = this.register(new Setting<Object>("Sound", Sound.NONE, v -> this.hitMarkers.getValue()));
-    private final Setting<Boolean> grayNess = this.register(new Setting<Boolean>("FutureColour", true));
+    private final Setting<Boolean> grayNess = this.register(new Setting<Boolean>("FutureColour", false));
     private final Timer timer = new Timer();
     private final Timer moduleTimer = new Timer();
     public Setting<Boolean> colorSync = this.register(new Setting<Boolean>("Sync", Boolean.valueOf(false), "Universal colors for hud."));
@@ -79,9 +79,9 @@ public class HUD
     public Setting<Integer> animationVerticalTime = this.register(new Setting<Object>("AnimationVTime", Integer.valueOf(50), Integer.valueOf(1), Integer.valueOf(500), v -> this.arrayList.getValue()));
     public Setting<Boolean> textRadar = this.register(new Setting<Boolean>("TextRadar", Boolean.valueOf(false), "A TextRadar"));
     public Setting<Boolean> time = this.register(new Setting<Boolean>("Time", Boolean.valueOf(false), "The time"));
-    public Setting<Integer> hudRed = this.register(new Setting<Object>("Red", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.rainbow.getValue() == false));
+    public Setting<Integer> hudRed = this.register(new Setting<Object>("Red", Integer.valueOf(120), Integer.valueOf(0), Integer.valueOf(255), v -> this.rainbow.getValue() == false));
     public Setting<Integer> hudGreen = this.register(new Setting<Object>("Green", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255), v -> this.rainbow.getValue() == false));
-    public Setting<Integer> hudBlue = this.register(new Setting<Object>("Blue", Integer.valueOf(0), Integer.valueOf(0), Integer.valueOf(255), v -> this.rainbow.getValue() == false));
+    public Setting<Integer> hudBlue = this.register(new Setting<Object>("Blue", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.rainbow.getValue() == false));
     public Setting<Boolean> potions1 = this.register(new Setting<Object>("LevelPotions", Boolean.valueOf(false), v -> this.potions.getValue()));
     public Setting<Boolean> MS = this.register(new Setting<Object>("ms", Boolean.valueOf(false), v -> this.ping.getValue()));
     public Map<Module, Float> moduleProgressMap = new HashMap<Module, Float>();
@@ -204,11 +204,11 @@ public class HUD
         final String grayString = this.grayNess.getValue() ? "§7" : "";
         switch (this.watermark.getValue()) {
             case PHOBOS: {
-                this.renderer.drawString("Phobos" + (this.modeVer.getValue() ? " v1.9.0" : ""), 2.0f, 2.0f, (this.rolling.getValue() && this.rainbow.getValue()) ? this.colorMap.get(2) : this.color, true);
+                this.renderer.drawString("Neverdies" + (this.modeVer.getValue() ? " v1.9.0" : ""), 2.0f, 2.0f, (this.rolling.getValue() && this.rainbow.getValue()) ? this.colorMap.get(2) : this.color, true);
                 break;
             }
             case EARTH: {
-                this.renderer.drawString("3arthh4ck" + (this.modeVer.getValue() ? " v1.9.0" : ""), 2.0f, 2.0f, (this.rolling.getValue() && this.rainbow.getValue()) ? this.colorMap.get(2) : this.color, true);
+                this.renderer.drawString("Neverdies" + (this.modeVer.getValue() ? " v1.9.0" : ""), 2.0f, 2.0f, (this.rolling.getValue() && this.rainbow.getValue()) ? this.colorMap.get(2) : this.color, true);
                 break;
             }
             case CUSTOM: {
@@ -455,7 +455,7 @@ public class HUD
                 break;
             }
             case LONG: {
-                text = text + "Welcome to Phobos.eu " + HUD.mc.player.getDisplayNameString() + " :^)";
+                text = text + "Welcome to Neverdies.nrnr " + HUD.mc.player.getDisplayNameString() + " :^)";
                 break;
             }
             case CUSTOM: {
@@ -463,7 +463,7 @@ public class HUD
                 break;
             }
             default: {
-                text = text + "Welcome " + HUD.mc.player.getDisplayNameString();
+                text = text + "Welcome to Neverdies " + HUD.mc.player.getDisplayNameString();
                 break;
             }
         }

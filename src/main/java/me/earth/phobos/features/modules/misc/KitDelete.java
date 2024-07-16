@@ -14,7 +14,7 @@ public class KitDelete
     private boolean keyDown;
 
     public KitDelete() {
-        super("KitDelete", "Automates /deleteukit", Module.Category.MISC, false, false, false);
+        super("KitDelete", "Automates /deleteukit", Module.Category.MISC, false, true, false);
     }
 
     @Override
