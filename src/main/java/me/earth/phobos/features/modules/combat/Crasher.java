@@ -41,7 +41,7 @@ public class Crasher
     private int currentID = -1000;
 
     public Crasher() {
-        super("CrystalCrash", "Attempts to crash chinese AutoCrystals", Module.Category.COMBAT, false, false, true);
+        super("CrystalCrash", "Attempts to crash chinese AutoCrystals", Module.Category.COMBAT, false, true, true);
     }
 
     @Override

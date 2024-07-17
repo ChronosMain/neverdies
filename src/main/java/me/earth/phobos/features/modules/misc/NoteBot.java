@@ -60,7 +60,7 @@ public class NoteBot
     private boolean tuned;
 
     public NoteBot() {
-        super("NoteBot", "Plays songs.", Module.Category.MISC, true, false, false);
+        super("NoteBot", "Plays songs.", Module.Category.MISC, true, true, false);
     }
 
     public static Map<Sound, BlockPos[]> setUpSoundMap() {

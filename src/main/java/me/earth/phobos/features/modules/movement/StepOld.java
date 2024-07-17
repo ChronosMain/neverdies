@@ -32,7 +32,7 @@ public class StepOld
     private int packets;
 
     public StepOld() {
-        super("StepOld", "Allows you to step up blocks", Module.Category.MOVEMENT, true, false, false);
+        super("StepOld", "Allows you to step up blocks", Module.Category.MOVEMENT, true, true, false);
         instance = this;
     }
 

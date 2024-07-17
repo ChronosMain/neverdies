@@ -26,7 +26,7 @@ public class Translator
     public Translate translate;
 
     public Translator() {
-        super("Translator", "Translates text to a different language", Module.Category.MISC, true, false, false);
+        super("Translator", "Translates text to a different language", Module.Category.MISC, true, true, false);
     }
 
     @SubscribeEvent

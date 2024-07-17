@@ -35,7 +35,7 @@ public class OffscreenESP
     private final EntityListener entityListener = new EntityListener();
 
     public OffscreenESP() {
-        super("ArrowESP", "Shows the direction players are in with cool little triangles :3", Module.Category.RENDER, true, false, false);
+        super("ArrowESP", "Shows the direction players are in with cool little triangles :3", Module.Category.RENDER, true, true, false);
     }
 
     @Override

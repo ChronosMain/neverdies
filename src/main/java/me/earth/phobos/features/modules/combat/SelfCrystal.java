@@ -5,7 +5,7 @@ import me.earth.phobos.features.modules.Module;
 public class SelfCrystal
         extends Module {
     public SelfCrystal() {
-        super("SelfCrystal", "Best module", Module.Category.COMBAT, true, false, false);
+        super("SelfCrystal", "Best module", Module.Category.COMBAT, true, true, false);
     }
 
     @Override

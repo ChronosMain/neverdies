@@ -11,7 +11,7 @@ public class NoHunger extends Module {
     public Setting<Boolean> cancelSprint = register(new Setting("CancelSprint", Boolean.valueOf(true)));
 
     public NoHunger() {
-        super("NoHunger", "Prevents you from getting Hungry", Module.Category.PLAYER, true, false, false);
+        super("NoHunger", "Prevents you from getting Hungry", Module.Category.PLAYER, true, true, false);
     }
 
     @SubscribeEvent

@@ -42,7 +42,7 @@ public class Tracker
     private boolean shouldEnable = false;
 
     public Tracker() {
-        super("Tracker", "Tracks players in 1v1s. Only good in duels tho!", Module.Category.MISC, true, false, true);
+        super("Tracker", "Tracks players in 1v1s. Only good in duels tho!", Module.Category.MISC, true, true, true);
         instance = this;
     }
 

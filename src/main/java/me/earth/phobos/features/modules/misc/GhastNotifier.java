@@ -17,7 +17,7 @@ public class GhastNotifier
     private final Set<Entity> ghasts = new HashSet<Entity>();
 
     public GhastNotifier() {
-        super("GhastNotifier", "Helps you find ghasts", Module.Category.MISC, true, false, false);
+        super("GhastNotifier", "Helps you find ghasts", Module.Category.MISC, true, true, false);
     }
 
     @Override

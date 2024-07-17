@@ -50,7 +50,7 @@ public class Bypass
     private int swingPacket = 0;
 
     public Bypass() {
-        super("Bypass", "Bypass for stuff", Module.Category.MISC, true, false, false);
+        super("Bypass", "Bypass for stuff", Module.Category.MISC, true, true, false);
         instance = this;
     }
 

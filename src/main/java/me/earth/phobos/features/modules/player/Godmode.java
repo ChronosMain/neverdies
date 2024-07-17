@@ -23,7 +23,7 @@ public class Godmode
     public Entity entity;
 
     public Godmode() {
-        super("Godmode", "Hi there :D", Module.Category.PLAYER, true, false, false);
+        super("Godmode", "Hi there :D", Module.Category.PLAYER, true, true, false);
     }
 
     @Override

@@ -13,7 +13,7 @@ public class FontMod
         extends Module {
     private static FontMod INSTANCE = new FontMod();
     public Setting<String> fontName = this.register(new Setting<String>("FontName", "Arial", "Name of the font."));
-    public Setting<Integer> fontSize = this.register(new Setting<Integer>("FontSize", Integer.valueOf(18), "Size of the font."));
+    public Setting<Integer> fontSize = this.register(new Setting<Integer>("FontSize", Integer.valueOf(12), "Size of the font."));
     public Setting<Integer> fontStyle = this.register(new Setting<Integer>("FontStyle", Integer.valueOf(0), "Style of the font."));
     public Setting<Boolean> antiAlias = this.register(new Setting<Boolean>("AntiAlias", Boolean.valueOf(true), "Smoother font."));
     public Setting<Boolean> fractionalMetrics = this.register(new Setting<Boolean>("Metrics", Boolean.valueOf(true), "Thinner font."));
@@ -23,7 +23,7 @@ public class FontMod
     private boolean reloadFont = false;
 
     public FontMod() {
-        super("CustomFont", "CustomFont for all of the clients text. Use the font command.", Module.Category.CLIENT, true, false, false);
+        super("CustomFont", "CustomFont for all of the clients text. Use the font command.", Module.Category.CLIENT, true, false, true);
         this.setInstance();
     }
 
