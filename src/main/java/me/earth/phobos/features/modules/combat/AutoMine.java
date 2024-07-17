@@ -26,7 +26,6 @@ public class AutoMine
         Entity targetPos = EntityUtil.getClosestEnemy(range.getValue());
 
 
-
         if (!(targetPos == null))
         {
             BlockPos blockTargetPos = targetPos.getPosition();
