@@ -33,6 +33,7 @@ public class ModuleManager
         this.modules.add(new Surround());
         this.modules.add(new AutoTrap());
         this.modules.add(new AutoCrystal());
+        this.modules.add(new AutoMine());
         this.modules.add(new Criticals());
         this.modules.add(new BowSpam());
         this.modules.add(new Killaura());
