@@ -29,9 +29,9 @@ import me.earth.phobos.util.*;
 import java.awt.*;
 
 public
-class Speedmine
+class ChronosMine
         extends Module {
-    private static Speedmine INSTANCE = new Speedmine ( );
+    private static ChronosMine INSTANCE = new ChronosMine ( );
     public final Timer timer = new Timer ( );
     private final Setting < Float > range = this.register ( new Setting <> ( "Range" , 10.0f , 0.0f , 50.0f ) );
     public Setting < Boolean > tweaks = this.register ( new Setting <> ( "Tweaks" , true ) );
@@ -61,15 +61,15 @@ class Speedmine
     private EnumFacing lastFacing;
 
     public
-    Speedmine ( ) {
-        super ( "Speedmine" , "Speeds up mining." , Module.Category.PLAYER , true , false , false );
+    ChronosMine ( ) {
+        super ( "ChronosMine" , "Speeds up mining." , Module.Category.PLAYER , true , false , false );
         this.setInstance ( );
     }
 
     public static
-    Speedmine getInstance ( ) {
+    ChronosMine getInstance ( ) {
         if ( INSTANCE == null ) {
-            INSTANCE = new Speedmine ( );
+            INSTANCE = new ChronosMine ( );
         }
         return INSTANCE;
     }
@@ -83,23 +83,23 @@ class Speedmine
     public
     void onTick ( ) {
         if ( this.currentPos != null ) {
-            if ( Speedmine.mc.player != null && Speedmine.mc.player.getDistanceSq ( this.currentPos ) > MathUtil.square ( this.range.getValue ( ) ) ) {
+            if ( ChronosMine.mc.player != null && ChronosMine.mc.player.getDistanceSq ( this.currentPos ) > MathUtil.square ( this.range.getValue ( ) ) ) {
                 this.currentPos = null;
                 this.currentBlockState = null;
                 return;
             }
-            if ( Speedmine.mc.player != null && this.silentSwitch.getValue ( ) && this.timer.passedMs ( (int) ( 2000.0f * Phobos.serverManager.getTpsFactor ( ) ) ) && this.getPickSlot ( ) != - 1 ) {
-                Speedmine.mc.player.connection.sendPacket ( new CPacketHeldItemChange ( this.getPickSlot ( ) ) );
+            if ( ChronosMine.mc.player != null && this.silentSwitch.getValue ( ) && this.timer.passedMs ( (int) ( 2000.0f * Phobos.serverManager.getTpsFactor ( ) ) ) && this.getPickSlot ( ) != - 1 ) {
+                ChronosMine.mc.player.connection.sendPacket ( new CPacketHeldItemChange ( this.getPickSlot ( ) ) );
             }
-            if ( Speedmine.mc.player != null && this.silentSwitch.getValue ( ) && this.timer.passedMs ( (int) ( 2200.0f * Phobos.serverManager.getTpsFactor ( ) ) ) ) {
+            if ( ChronosMine.mc.player != null && this.silentSwitch.getValue ( ) && this.timer.passedMs ( (int) ( 2200.0f * Phobos.serverManager.getTpsFactor ( ) ) ) ) {
                 int oldSlot = mc.player.inventory.currentItem;
-                Speedmine.mc.player.connection.sendPacket ( new CPacketHeldItemChange ( oldSlot ) );
+                ChronosMine.mc.player.connection.sendPacket ( new CPacketHeldItemChange ( oldSlot ) );
             }
             if ( fullNullCheck ( ) ) return;
-            if ( ! Speedmine.mc.world.getBlockState ( this.currentPos ).equals ( this.currentBlockState ) || Speedmine.mc.world.getBlockState ( this.currentPos ).getBlock ( ) == Blocks.AIR ) {
+            if ( ! ChronosMine.mc.world.getBlockState ( this.currentPos ).equals ( this.currentBlockState ) || ChronosMine.mc.world.getBlockState ( this.currentPos ).getBlock ( ) == Blocks.AIR ) {
                 this.currentPos = null;
                 this.currentBlockState = null;
-            } else if ( this.webSwitch.getValue ( ) && this.currentBlockState.getBlock ( ) == Blocks.WEB && Speedmine.mc.player.getHeldItemMainhand ( ).getItem ( ) instanceof ItemPickaxe ) {
+            } else if ( this.webSwitch.getValue ( ) && this.currentBlockState.getBlock ( ) == Blocks.WEB && ChronosMine.mc.player.getHeldItemMainhand ( ).getItem ( ) instanceof ItemPickaxe ) {
                 InventoryUtil.switchToHotbarSlot ( ItemSword.class , false );
             }
         }
@@ -108,17 +108,17 @@ class Speedmine
     @Override
     public
     void onUpdate ( ) {
-        if ( Speedmine.fullNullCheck ( ) ) {
+        if ( ChronosMine.fullNullCheck ( ) ) {
             return;
         }
         if ( this.noDelay.getValue ( ) ) {
-            Speedmine.mc.playerController.blockHitDelay = 0;
+            ChronosMine.mc.playerController.blockHitDelay = 0;
         }
         if ( this.isMining && this.lastPos != null && this.lastFacing != null && this.noBreakAnim.getValue ( ) ) {
-            Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.ABORT_DESTROY_BLOCK , this.lastPos , this.lastFacing ) );
+            ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.ABORT_DESTROY_BLOCK , this.lastPos , this.lastFacing ) );
         }
-        if ( this.reset.getValue ( ) && Speedmine.mc.gameSettings.keyBindUseItem.isKeyDown ( ) && ! this.allow.getValue ( ) ) {
-            Speedmine.mc.playerController.isHittingBlock = false;
+        if ( this.reset.getValue ( ) && ChronosMine.mc.gameSettings.keyBindUseItem.isKeyDown ( ) && ! this.allow.getValue ( ) ) {
+            ChronosMine.mc.playerController.isHittingBlock = false;
         }
     }
 
@@ -134,7 +134,7 @@ class Speedmine
     @SubscribeEvent
     public
     void onPacketSend ( PacketEvent.Send event ) {
-        if ( Speedmine.fullNullCheck ( ) ) {
+        if ( ChronosMine.fullNullCheck ( ) ) {
             return;
         }
         if ( event.getStage ( ) == 0 ) {
@@ -145,7 +145,7 @@ class Speedmine
             if ( this.noBreakAnim.getValue ( ) && event.getPacket ( ) instanceof CPacketPlayerDigging && ( packet = event.getPacket ( ) ) != null ) {
                 packet.getPosition ( );
                 try {
-                    for (Entity entity : Speedmine.mc.world.getEntitiesWithinAABBExcludingEntity ( null , new AxisAlignedBB ( packet.getPosition ( ) ) )) {
+                    for (Entity entity : ChronosMine.mc.world.getEntitiesWithinAABBExcludingEntity ( null , new AxisAlignedBB ( packet.getPosition ( ) ) )) {
                         if ( ! ( entity instanceof EntityEnderCrystal ) ) continue;
                         this.showAnimation ( );
                         return;
@@ -166,58 +166,58 @@ class Speedmine
     @SubscribeEvent
     public
     void onBlockEvent ( BlockEvent event ) {
-        if ( Speedmine.fullNullCheck ( ) ) {
+        if ( ChronosMine.fullNullCheck ( ) ) {
             return;
         }
-        if ( event.getStage ( ) == 3 && Speedmine.mc.world.getBlockState ( event.pos ).getBlock ( ) instanceof BlockEndPortalFrame ) {
-            Speedmine.mc.world.getBlockState ( event.pos ).getBlock ( ).setHardness ( 50.0f );
+        if ( event.getStage ( ) == 3 && ChronosMine.mc.world.getBlockState ( event.pos ).getBlock ( ) instanceof BlockEndPortalFrame ) {
+            ChronosMine.mc.world.getBlockState ( event.pos ).getBlock ( ).setHardness ( 50.0f );
         }
-        if ( event.getStage ( ) == 3 && this.reset.getValue ( ) && Speedmine.mc.playerController.curBlockDamageMP > 0.1f ) {
-            Speedmine.mc.playerController.isHittingBlock = true;
+        if ( event.getStage ( ) == 3 && this.reset.getValue ( ) && ChronosMine.mc.playerController.curBlockDamageMP > 0.1f ) {
+            ChronosMine.mc.playerController.isHittingBlock = true;
         }
         if ( event.getStage ( ) == 4 && this.tweaks.getValue ( ) ) {
             ItemStack object;
             BlockPos above;
             if ( BlockUtil.canBreak ( event.pos ) ) {
                 if ( this.reset.getValue ( ) ) {
-                    Speedmine.mc.playerController.isHittingBlock = false;
+                    ChronosMine.mc.playerController.isHittingBlock = false;
                 }
                 switch (this.mode.getValue ( )) {
                     case PACKET: {
                         if ( this.currentPos == null ) {
                             this.currentPos = event.pos;
-                            this.currentBlockState = Speedmine.mc.world.getBlockState ( this.currentPos );
+                            this.currentBlockState = ChronosMine.mc.world.getBlockState ( this.currentPos );
                             object = new ItemStack ( Items.DIAMOND_PICKAXE );
                             this.breakTime = object.getDestroySpeed ( this.currentBlockState ) / 3.71f;
                             this.timer.reset ( );
                         }
-                        Speedmine.mc.player.swingArm ( EnumHand.MAIN_HAND );
-                        Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , event.pos , event.facing ) );
-                        Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , event.pos , event.facing ) );
+                        ChronosMine.mc.player.swingArm ( EnumHand.MAIN_HAND );
+                        ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , event.pos , event.facing ) );
+                        ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , event.pos , event.facing ) );
                         event.setCanceled ( true );
                         break;
                     }
                     case DAMAGE: {
-                        if ( ! ( Speedmine.mc.playerController.curBlockDamageMP >= this.damage.getValue ( ) ) )
+                        if ( ! ( ChronosMine.mc.playerController.curBlockDamageMP >= this.damage.getValue ( ) ) )
                             break;
-                        Speedmine.mc.playerController.curBlockDamageMP = 1.0f;
+                        ChronosMine.mc.playerController.curBlockDamageMP = 1.0f;
                         break;
                     }
                     case INSTANT: {
-                        Speedmine.mc.player.swingArm ( EnumHand.MAIN_HAND );
-                        Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , event.pos , event.facing ) );
-                        Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , event.pos , event.facing ) );
-                        Speedmine.mc.playerController.onPlayerDestroyBlock ( event.pos );
-                        Speedmine.mc.world.setBlockToAir ( event.pos );
+                        ChronosMine.mc.player.swingArm ( EnumHand.MAIN_HAND );
+                        ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , event.pos , event.facing ) );
+                        ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , event.pos , event.facing ) );
+                        ChronosMine.mc.playerController.onPlayerDestroyBlock ( event.pos );
+                        ChronosMine.mc.world.setBlockToAir ( event.pos );
                     }
                 }
             }
-            if ( this.doubleBreak.getValue ( ) && BlockUtil.canBreak ( above = event.pos.add ( 0 , 1 , 0 ) ) && Speedmine.mc.player.getDistance ( above.getX ( ) , above.getY ( ) , above.getZ ( ) ) <= 5.0 ) {
-                Speedmine.mc.player.swingArm ( EnumHand.MAIN_HAND );
-                Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , above , event.facing ) );
-                Speedmine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , above , event.facing ) );
-                Speedmine.mc.playerController.onPlayerDestroyBlock ( above );
-                Speedmine.mc.world.setBlockToAir ( above );
+            if ( this.doubleBreak.getValue ( ) && BlockUtil.canBreak ( above = event.pos.add ( 0 , 1 , 0 ) ) && ChronosMine.mc.player.getDistance ( above.getX ( ) , above.getY ( ) , above.getZ ( ) ) <= 5.0 ) {
+                ChronosMine.mc.player.swingArm ( EnumHand.MAIN_HAND );
+                ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.START_DESTROY_BLOCK , above , event.facing ) );
+                ChronosMine.mc.player.connection.sendPacket ( new CPacketPlayerDigging ( CPacketPlayerDigging.Action.STOP_DESTROY_BLOCK , above , event.facing ) );
+                ChronosMine.mc.playerController.onPlayerDestroyBlock ( above );
+                ChronosMine.mc.world.setBlockToAir ( above );
             }
         }
     }
@@ -225,7 +225,7 @@ class Speedmine
     private
     int getPickSlot ( ) {
         for (int i = 0; i < 9; ++ i) {
-            if ( Speedmine.mc.player.inventory.getStackInSlot ( i ).getItem ( ) != Items.DIAMOND_PICKAXE ) continue;
+            if ( ChronosMine.mc.player.inventory.getStackInSlot ( i ).getItem ( ) != Items.DIAMOND_PICKAXE ) continue;
             return i;
         }
         return - 1;

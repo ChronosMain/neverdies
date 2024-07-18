@@ -53,7 +53,10 @@ public class ModuleManager
         this.modules.add(new ChatModifier());
         this.modules.add(new BetterPortals());
         this.modules.add(new BuildHeight());
+        this.modules.add(new CrystalSpawns());
+        this.modules.add(new BurrowChecker());
         this.modules.add(new NoHandShake());
+        this.modules.add(new ChronosMine());
         this.modules.add(new AutoRespawn());
         this.modules.add(new NoRotate());
         this.modules.add(new MCF());
