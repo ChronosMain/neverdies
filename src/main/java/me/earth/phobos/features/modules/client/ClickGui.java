@@ -35,7 +35,7 @@ public class ClickGui
     public Setting<Integer> topAlpha = this.register(new Setting<Object>("TopAlpha", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.devSettings.getValue()));
 
     public ClickGui() {
-        super("ClickGui", "Opens the ClickGui", Module.Category.CLIENT, true, false, false);
+        super("ClickGui", "Opens the Gui", Module.Category.CLIENT, true, false, false);
         this.setInstance();
     }
 
