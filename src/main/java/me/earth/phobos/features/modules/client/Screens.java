@@ -9,7 +9,7 @@ public class Screens
     public Setting<Boolean> mainScreen = this.register(new Setting<Boolean>("MainScreen", true));
 
     public Screens() {
-        super("Screens", "Controls custom screens used by the client", Module.Category.CLIENT, true, false, false);
+        super("Screens", "Controls custom screens used by the client", Module.Category.CLIENT, true, true, false);
         INSTANCE = this;
     }
 
