@@ -26,7 +26,7 @@ public class Notifications
     private static Notifications INSTANCE = new Notifications();
     private final Timer timer = new Timer();
     public Setting<Boolean> totemPops = this.register(new Setting<Boolean>("TotemPops", false));
-    public Setting<Boolean> totemNoti = this.register(new Setting<Object>("TotemNoti", Boolean.valueOf(true), v -> this.totemPops.getValue()));
+    public Setting<Boolean> totemNoti = this.register(new Setting<Object>("TotemNotifs", Boolean.valueOf(true), v -> this.totemPops.getValue()));
     public Setting<Integer> delay = this.register(new Setting<Object>("Delay", 2000, 0, 5000, v -> this.totemPops.getValue(), "Delays messages."));
     public Setting<Boolean> clearOnLogout = this.register(new Setting<Boolean>("LogoutClear", false));
     public Setting<Boolean> moduleMessage = this.register(new Setting<Boolean>("ModuleMessage", false));

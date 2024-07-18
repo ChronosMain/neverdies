@@ -49,6 +49,7 @@ public class ModuleManager
         this.modules.add(new AntiCrystal());
         this.modules.add(new AnvilAura());
         this.modules.add(new GodModule());
+        this.modules.add(new Neverdies());
         this.modules.add(new NoteBot());
         this.modules.add(new ChatModifier());
         this.modules.add(new BetterPortals());

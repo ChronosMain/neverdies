@@ -2,6 +2,7 @@ package me.earth.phobos;
 
 import me.earth.phobos.features.gui.custom.GuiCustomMainScreen;
 import me.earth.phobos.features.modules.client.IRC;
+import me.earth.phobos.features.modules.misc.NoRotate;
 import me.earth.phobos.features.modules.misc.RPC;
 import me.earth.phobos.manager.*;
 import net.minecraftforge.fml.common.Mod;
