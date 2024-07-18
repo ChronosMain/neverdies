@@ -1,10 +1,13 @@
 package me.earth.phobos.features.modules.combat;
 
+import me.earth.phobos.Phobos;
 import me.earth.phobos.features.modules.Module;
 import me.earth.phobos.features.setting.Setting;
 import me.earth.phobos.util.BlockUtil;
 import me.earth.phobos.util.EntityUtil;
+import me.earth.phobos.util.RotationUtil;
 import net.minecraft.entity.Entity;
+import net.minecraft.network.play.client.CPacketUseEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -29,6 +32,7 @@ public class AutoMine
         if (!(targetPos == null))
         {
             BlockPos blockTargetPos = targetPos.getPosition();
+            String targetName = String.valueOf(targetPos.getDisplayName());
 
             if (BlockUtil.isBlockSolid(blockTargetPos.north(1)))
             {
@@ -38,8 +42,6 @@ public class AutoMine
                 }
                 mc.playerController.onPlayerDamageBlock(blockTargetPos.north(1), EnumFacing.UP);
                 Vec3d vecTargetPosNorth = BlockUtil.posToVec3d(blockTargetPos.north(1));
-                System.out.println("north");
-
             }
             else if (BlockUtil.isBlockSolid(blockTargetPos.east(1)))
             {
