@@ -3,14 +3,14 @@
     "modid": "neverdies",
     "name": "Neverdies.nrnr",
     "description": "1.12.2 PvP & Utility Client",
-    "version": "1.9.0",
+    "version": "2.0.0",
     "mcversion": "1.12.2",
     "logoFile": "phobos.png",
     "url": "https://discord.gg/2d8EVQAn9a",
     "updateUrl": "",
     "authorList": [
       "MORTEX8",
-      "Chronos"
+      "ChronosUser"
     ],
     "screenshots": [],
     "dependencies": []

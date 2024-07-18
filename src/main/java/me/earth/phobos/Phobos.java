@@ -13,11 +13,11 @@ import org.lwjgl.opengl.Display;
 
 import java.io.IOException;
 
-@Mod(modid = "neverdies", name = "Neverdies.nrnr", version = "1.9.0")
+@Mod(modid = "neverdies", name = "Neverdies.nrnr", version = "2.0.0")
 public class Phobos {
     public static final String MODID = "neverdies";
     public static final String MODNAME = "Neverdies.nrnr";
-    public static final String MODVER = "1.9.0";
+    public static final String MODVER = "2.0.0";
     public static final String NAME_UNICODE = "3\u1d00\u0280\u1d1b\u029c\u029c4\u1d04\u1d0b";
     public static final String PHOBOS_UNICODE = "\u1d18\u029c\u1d0f\u0299\u1d0f\ua731";
     public static final String CHAT_SUFFIX = " \u23d0 3\u1d00\u0280\u1d1b\u029c\u029c4\u1d04\u1d0b";
@@ -57,7 +57,7 @@ public class Phobos {
     }
 
     public static void load() {
-        LOGGER.info("\n\nLoading Neverdies 1.9.0");
+        LOGGER.info("\n\nLoading Neverdies 2.0.0");
         unloaded = false;
         if (reloadManager != null) {
             reloadManager.unload();
@@ -103,7 +103,7 @@ public class Phobos {
     }
 
     public static void unload(boolean unload) {
-        LOGGER.info("\n\nUnloading Neverdies 1.9.0");
+        LOGGER.info("\n\nUnloading Neverdies 2.0.0");
         if (unload) {
             reloadManager = new ReloadManager();
             reloadManager.init(commandManager != null ? commandManager.getPrefix() : ".");
