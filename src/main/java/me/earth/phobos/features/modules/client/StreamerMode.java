@@ -47,7 +47,7 @@ public class StreamerMode
     public void onLogout() {
         if (this.window != null) {
             ArrayList<String> drawInfo = new ArrayList<String>();
-            drawInfo.add("Phobos v1.9.0");
+            drawInfo.add("Neverdies v2");
             drawInfo.add("");
             drawInfo.add("No Connection.");
             this.window.setToDraw(drawInfo);
@@ -68,7 +68,7 @@ public class StreamerMode
     public void onUpdate() {
         if (this.window != null) {
             ArrayList<String> drawInfo = new ArrayList<String>();
-            drawInfo.add("Phobos v1.9.0");
+            drawInfo.add("Neverdies v2");
             drawInfo.add("");
             drawInfo.add("Fps: " + Minecraft.debugFPS);
             drawInfo.add("TPS: " + Phobos.serverManager.getTPS());
@@ -177,7 +177,7 @@ public class StreamerMode
             this.add(this.panel);
             this.setResizable(true);
             this.pack();
-            this.setTitle("Phobos - Info");
+            this.setTitle("Neverdies - Info");
             this.setLocationRelativeTo(null);
             this.setDefaultCloseOperation(2);
         }
