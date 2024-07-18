@@ -8,7 +8,7 @@ import java.util.Objects;
 public class AntiLevitate
         extends Module {
     public AntiLevitate() {
-        super("AntiLevitate", "Removes shulker levitation", Module.Category.MOVEMENT, false, false, false);
+        super("AntiLevitate", "Removes shulker levitation", Module.Category.MOVEMENT, false, true, false);
     }
 
     @Override

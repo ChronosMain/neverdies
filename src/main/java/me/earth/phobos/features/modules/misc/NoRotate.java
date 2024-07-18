@@ -16,7 +16,7 @@ public class NoRotate
     private boolean timerReset = false;
 
     public NoRotate() {
-        super("NoRotate", "Dangerous to use might desync you.", Module.Category.MISC, true, false, false);
+        super("NoRotate", "Dangerous to use might desync you.", Module.Category.MISC, true, true, false);
     }
 
     @Override

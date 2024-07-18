@@ -84,7 +84,7 @@ public class Components
     private final Map<EntityPlayer, Map<Integer, ItemStack>> hotbarMap = new HashMap<EntityPlayer, Map<Integer, ItemStack>>();
 
     public Components() {
-        super("Components", "HudComponents", Module.Category.CLIENT, false, false, true);
+        super("Components", "HudComponents", Module.Category.CLIENT, false, true, true);
     }
 
     public static EntityPlayer getClosestEnemy() {

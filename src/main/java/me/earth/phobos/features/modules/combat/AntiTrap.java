@@ -36,7 +36,7 @@ public class AntiTrap
     private boolean offhand = false;
 
     public AntiTrap() {
-        super("AntiTrap", "Places a crystal to prevent you getting trapped.", Module.Category.COMBAT, true, false, false);
+        super("AntiTrap", "Places a crystal to prevent you getting trapped.", Module.Category.COMBAT, true, true, false);
     }
 
     @Override

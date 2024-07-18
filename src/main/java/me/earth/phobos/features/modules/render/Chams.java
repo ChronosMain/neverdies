@@ -24,7 +24,7 @@ public class Chams
     public Setting<Integer> hiddenAlpha = this.register(new Setting<Object>("Hidden Alpha", Integer.valueOf(255), Integer.valueOf(0), Integer.valueOf(255), v -> this.colored.getValue() != false && this.xqz.getValue() != false && this.rainbow.getValue() == false));
 
     public Chams() {
-        super("Chams", "Renders players through walls.", Module.Category.RENDER, false, false, false);
+        super("Chams", "Renders players through walls.", Module.Category.RENDER, false, true, false);
         this.setInstance();
     }
 

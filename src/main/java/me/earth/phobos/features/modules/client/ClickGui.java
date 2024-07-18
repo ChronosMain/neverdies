@@ -16,7 +16,7 @@ public class ClickGui
     public Setting<Boolean> colorSync = this.register(new Setting<Boolean>("Sync", false));
     public Setting<Boolean> outline = this.register(new Setting<Boolean>("Outline", false));
     public Setting<Boolean> rainbowRolling = this.register(new Setting<Object>("RollingRainbow", Boolean.valueOf(false), v -> this.colorSync.getValue() != false && Colors.INSTANCE.rainbow.getValue() != false));
-    public Setting<String> prefix = this.register(new Setting<String>("Prefix", ".").setRenderName(true));
+    public Setting<String> prefix = this.register(new Setting<String>("Prefix", "$").setRenderName(true));
     public Setting<Integer> red = this.register(new Setting<Integer>("Red", 120, 0, 255));
     public Setting<Integer> green = this.register(new Setting<Integer>("Green", 80, 0, 255));
     public Setting<Integer> blue = this.register(new Setting<Integer>("Blue", 255, 0, 255));

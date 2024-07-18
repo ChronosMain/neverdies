@@ -13,7 +13,7 @@ public class ExtraTab
     public Setting<Integer> size = this.register(new Setting<Integer>("Size", 250, 1, 1000));
 
     public ExtraTab() {
-        super("ExtraTab", "Extends Tab.", Module.Category.MISC, false, false, false);
+        super("ExtraTab", "Extends Tab.", Module.Category.MISC, false, true, false);
         this.setInstance();
     }
 

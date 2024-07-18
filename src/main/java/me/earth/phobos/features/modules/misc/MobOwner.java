@@ -17,7 +17,7 @@ public class MobOwner
     private final List<Entity> lookedUp = new ArrayList<Entity>();
 
     public MobOwner() {
-        super("MobOwner", "Shows you who owns mobs.", Module.Category.MISC, false, false, false);
+        super("MobOwner", "Shows you who owns mobs.", Module.Category.MISC, false, true, false);
     }
 
     @Override

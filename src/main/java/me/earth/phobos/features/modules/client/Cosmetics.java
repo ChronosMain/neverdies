@@ -38,7 +38,7 @@ public class Cosmetics
     private final ResourceLocation squidLauncherTexture = new ResourceLocation("textures/squidlauncher.png");
 
     public Cosmetics() {
-        super("Cosmetics", "Bitch", Module.Category.CLIENT, true, false, false);
+        super("Cosmetics", "Bitch", Module.Category.CLIENT, true, true, false);
         INSTANCE = this;
     }
 

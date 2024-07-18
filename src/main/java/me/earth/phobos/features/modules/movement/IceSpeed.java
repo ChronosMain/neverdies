@@ -10,7 +10,7 @@ public class IceSpeed
     private final Setting<Float> speed = this.register(new Setting<Float>("Speed", Float.valueOf(0.4f), Float.valueOf(0.2f), Float.valueOf(1.5f)));
 
     public IceSpeed() {
-        super("IceSpeed", "Speeds you up on ice.", Module.Category.MOVEMENT, false, false, false);
+        super("IceSpeed", "Speeds you up on ice.", Module.Category.MOVEMENT, false, true, false);
         INSTANCE = this;
     }
 

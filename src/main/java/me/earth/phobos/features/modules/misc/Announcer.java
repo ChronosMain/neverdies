@@ -28,7 +28,7 @@ public class Announcer
     private final Map<Action, Message> queue = new HashMap<Action, Message>();
 
     public Announcer() {
-        super("Announcer", "How to get muted quick.", Module.Category.MISC, true, false, false);
+        super("Announcer", "How to get muted quick.", Module.Category.MISC, true, true, false);
     }
 
     @Override

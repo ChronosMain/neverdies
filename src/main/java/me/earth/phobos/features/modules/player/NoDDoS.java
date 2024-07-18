@@ -19,7 +19,7 @@ public class NoDDoS
     public Setting<Boolean> showServer = this.register(new Setting<Object>("ShowServers", Boolean.valueOf(false), v -> this.full.getValue() == false));
 
     public NoDDoS() {
-        super("AntiDDoS", "Prevents DDoS attacks", Module.Category.PLAYER, false, false, true);
+        super("AntiDDoS", "Prevents DDoS attacks", Module.Category.PLAYER, false, true, true);
         instance = this;
     }
 

@@ -24,7 +24,7 @@ public class Jesus
     private boolean grounded = false;
 
     public Jesus() {
-        super("Jesus", "Allows you to walk on water", Module.Category.PLAYER, true, false, false);
+        super("Jesus", "Allows you to walk on water", Module.Category.PLAYER, true, true, false);
         INSTANCE = this;
     }
 

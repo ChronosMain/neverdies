@@ -42,7 +42,7 @@ public class AntiCrystal
     private Entity breakTarget;
 
     public AntiCrystal() {
-        super("AntiCrystal", "Hacker shit", Module.Category.COMBAT, true, false, false);
+        super("AntiCrystal", "Hacker shit", Module.Category.COMBAT, true, true, false);
     }
 
     @Override

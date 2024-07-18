@@ -38,7 +38,7 @@ public class Managers
     public Setting<Boolean> oneChunk = this.register(new Setting<Boolean>("OneChunk", false));
 
     public Managers() {
-        super("Management", "ClientManagement", Module.Category.CLIENT, false, false, true);
+        super("Management", "ClientManagement", Module.Category.CLIENT, false, true, true);
         this.setInstance();
     }
 

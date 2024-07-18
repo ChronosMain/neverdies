@@ -69,7 +69,7 @@ public class HoleFiller
     private boolean switchedItem = false;
 
     public HoleFiller() {
-        super("HoleFiller", "Fills holes around you.", Module.Category.COMBAT, true, false, true);
+        super("HoleFiller", "Fills holes around you.", Module.Category.COMBAT, true, true, true);
         this.setInstance();
     }
 

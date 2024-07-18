@@ -12,7 +12,7 @@ public class EchestBP
     private GuiScreen echestScreen = null;
 
     public EchestBP() {
-        super("EchestBP", "Allows to open your echest later.", Module.Category.PLAYER, false, false, false);
+        super("EchestBP", "Allows to open your echest later.", Module.Category.PLAYER, false, true, false);
     }
 
     @Override

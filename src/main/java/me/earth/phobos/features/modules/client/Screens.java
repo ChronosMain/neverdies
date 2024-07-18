@@ -6,10 +6,10 @@ import me.earth.phobos.features.setting.Setting;
 public class Screens
         extends Module {
     public static Screens INSTANCE;
-    public Setting<Boolean> mainScreen = this.register(new Setting<Boolean>("MainScreen", true));
+    public Setting<Boolean> mainScreen = this.register(new Setting<Boolean>("MainScreen", false));
 
     public Screens() {
-        super("Screens", "Controls custom screens used by the client", Module.Category.CLIENT, true, false, false);
+        super("Screens", "Controls custom screens used by the client", Module.Category.CLIENT, true, true, false);
         INSTANCE = this;
     }
 

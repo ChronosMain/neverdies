@@ -16,7 +16,7 @@ public class AntiVanish
     private final Queue<UUID> toLookUp = new ConcurrentLinkedQueue<UUID>();
 
     public AntiVanish() {
-        super("AntiVanish", "Notifies you when players vanish", Module.Category.MISC, true, false, false);
+        super("AntiVanish", "Notifies you when players vanish", Module.Category.MISC, true, true, false);
     }
 
     @SubscribeEvent

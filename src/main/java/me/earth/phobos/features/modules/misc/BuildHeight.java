@@ -12,7 +12,7 @@ public class BuildHeight
     private final Setting<Integer> height = this.register(new Setting<Integer>("Height", 255, 0, 255));
 
     public BuildHeight() {
-        super("BuildHeight", "Allows you to place at build height", Module.Category.MISC, true, false, false);
+        super("BuildHeight", "Allows you to place at build height", Module.Category.MISC, true, true, false);
     }
 
     @SubscribeEvent

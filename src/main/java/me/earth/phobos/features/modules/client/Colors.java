@@ -24,7 +24,7 @@ public class Colors
     public Map<Integer, Integer> colorHeightMap = new HashMap<Integer, Integer>();
 
     public Colors() {
-        super("Colors", "Universal colors.", Module.Category.CLIENT, true, false, true);
+        super("Colors", "Universal colors.", Module.Category.CLIENT, true, true, true);
         INSTANCE = this;
     }
 

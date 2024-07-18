@@ -17,7 +17,7 @@ public class HandColor
     public Setting<Integer> alpha = this.register(new Setting<Integer>("Alpha", 255, 0, 255));
 
     public HandColor() {
-        super("HandColor", "Changes the color of your hands", Module.Category.RENDER, false, false, false);
+        super("HandColor", "Changes the color of your hands", Module.Category.RENDER, false, true, false);
         INSTANCE = this;
     }
 }

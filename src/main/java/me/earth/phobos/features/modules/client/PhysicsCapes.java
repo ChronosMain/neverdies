@@ -20,7 +20,7 @@ public class PhysicsCapes
     public ModelPhyscisCapes cape = new ModelPhyscisCapes();
 
     public PhysicsCapes() {
-        super("PhysicsCapes", "Capes with superior physics", Module.Category.CLIENT, true, false, false);
+        super("PhysicsCapes", "Capes with superior physics", Module.Category.CLIENT, true, true, false);
     }
 
     @SubscribeEvent

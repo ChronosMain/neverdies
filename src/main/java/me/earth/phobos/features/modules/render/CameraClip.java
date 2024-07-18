@@ -10,7 +10,7 @@ public class CameraClip
     public Setting<Double> distance = this.register(new Setting<Object>("Distance", 10.0, 0.0, 50.0, v -> this.extend.getValue(), "By how much you want to extend the distance."));
 
     public CameraClip() {
-        super("CameraClip", "Makes your Camera clip.", Module.Category.RENDER, false, false, false);
+        super("CameraClip", "Makes your Camera clip.", Module.Category.RENDER, false, true, false);
         this.setInstance();
     }
 

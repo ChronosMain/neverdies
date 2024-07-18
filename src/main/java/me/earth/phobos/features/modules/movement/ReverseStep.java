@@ -5,7 +5,7 @@ import me.earth.phobos.features.modules.Module;
 public class ReverseStep
         extends Module {
     public ReverseStep() {
-        super("ReverseStep", "Screams chinese words and teleports you", Module.Category.MOVEMENT, true, false, false);
+        super("ReverseStep", "Screams chinese words and teleports you", Module.Category.MOVEMENT, true, true, false);
     }
 
     @Override

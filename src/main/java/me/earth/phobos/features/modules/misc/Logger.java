@@ -19,7 +19,7 @@ public class Logger
     public Setting<Boolean> noPing = this.register(new Setting<Boolean>("NoPing", false));
 
     public Logger() {
-        super("Logger", "Logs stuff", Module.Category.MISC, true, false, false);
+        super("Logger", "Logs stuff", Module.Category.MISC, true, true, false);
     }
 
     @SubscribeEvent(receiveCanceled = true)
