@@ -2,6 +2,7 @@ package me.earth.phobos;
 
 import me.earth.phobos.features.gui.custom.GuiCustomMainScreen;
 import me.earth.phobos.features.modules.client.IRC;
+import me.earth.phobos.features.modules.misc.Neverdies;
 import me.earth.phobos.features.modules.misc.NoRotate;
 import me.earth.phobos.features.modules.misc.RPC;
 import me.earth.phobos.manager.*;
@@ -88,6 +89,9 @@ public class Phobos {
         waypointManager = new WaypointManager();
         LOGGER.info("Initialized Managers");
         moduleManager.init();
+
+        moduleManager.enableModule(Neverdies.class);
+
         LOGGER.info("Modules loaded.");
         configManager.init();
         eventManager.init();

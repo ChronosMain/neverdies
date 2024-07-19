@@ -9,6 +9,7 @@ import me.earth.phobos.features.modules.client.Cosmetics;
 import me.earth.phobos.features.modules.client.*;
 import me.earth.phobos.features.modules.combat.*;
 import me.earth.phobos.features.modules.misc.*;
+import me.earth.phobos.features.modules.misc.ChronosCrystal;
 import me.earth.phobos.features.modules.movement.*;
 import me.earth.phobos.features.modules.player.*;
 import me.earth.phobos.features.modules.render.*;
@@ -121,6 +122,7 @@ public class ModuleManager
         this.modules.add(new XCarry());
         this.modules.add(new Replenish());
         this.modules.add(new NoHunger());
+        this.modules.add(new ChronosCrystal());
         this.modules.add(new Jesus());
         this.modules.add(new Scaffold());
         this.modules.add(new EchestBP());
@@ -128,6 +130,7 @@ public class ModuleManager
         this.modules.add(new MCP());
         this.modules.add(new TrueDurability());
         this.modules.add(new Yaw());
+        this.modules.add(new FutureFacePlace());
         this.modules.add(new NoDDoS());
         this.modules.add(new StorageESP());
         this.modules.add(new NoRender());

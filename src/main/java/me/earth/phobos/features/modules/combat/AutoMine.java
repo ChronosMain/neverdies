@@ -7,6 +7,8 @@ import me.earth.phobos.util.BlockUtil;
 import me.earth.phobos.util.EntityUtil;
 import me.earth.phobos.util.RotationUtil;
 import net.minecraft.entity.Entity;
+import net.minecraft.network.INetHandler;
+import net.minecraft.network.play.client.CPacketPlayer;
 import net.minecraft.network.play.client.CPacketUseEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -15,6 +17,8 @@ import net.minecraft.util.math.Vec3d;
 
 public class AutoMine
         extends Module {
+    private long lastPlaceTime = 0;
+
     public Setting<Boolean> futureAutoSelect = this.register(new Setting<Boolean>("FutureAutoSelect", false));
     public Setting<Boolean> rotate = this.register(new Setting<Boolean>("Rotate", false));
     public Setting<Integer> range = this.register(new Setting<Integer>("Range", 4, 1, 8));
@@ -36,12 +40,18 @@ public class AutoMine
 
             if (BlockUtil.isBlockSolid(blockTargetPos.north(1)))
             {
+
+
                 if (futureAutoSelect.getValue() == false)
                 {
                     mc.player.swingArm(EnumHand.MAIN_HAND);
                 }
+                long time = System.currentTimeMillis();
+                if ((time - lastPlaceTime) < delay.getValue() * 1000) return;
+                lastPlaceTime = time;
                 mc.playerController.onPlayerDamageBlock(blockTargetPos.north(1), EnumFacing.UP);
                 Vec3d vecTargetPosNorth = BlockUtil.posToVec3d(blockTargetPos.north(1));
+
             }
             else if (BlockUtil.isBlockSolid(blockTargetPos.east(1)))
             {
@@ -49,6 +59,9 @@ public class AutoMine
                 {
                     mc.player.swingArm(EnumHand.MAIN_HAND);
                 }
+                long time = System.currentTimeMillis();
+                if ((time - lastPlaceTime) < delay.getValue() * 1000) return;
+                lastPlaceTime = time;
                 mc.playerController.onPlayerDamageBlock(blockTargetPos.east(1), EnumFacing.UP);
 
             }
@@ -58,6 +71,9 @@ public class AutoMine
                 {
                     mc.player.swingArm(EnumHand.MAIN_HAND);
                 }
+                long time = System.currentTimeMillis();
+                if ((time - lastPlaceTime) < delay.getValue() * 1000) return;
+                lastPlaceTime = time;
                 mc.playerController.onPlayerDamageBlock(blockTargetPos.west(1), EnumFacing.UP);
 
             }
@@ -67,6 +83,9 @@ public class AutoMine
                 {
                     mc.player.swingArm(EnumHand.MAIN_HAND);
                 }
+                long time = System.currentTimeMillis();
+                if ((time - lastPlaceTime) < delay.getValue() * 1000) return;
+                lastPlaceTime = time;
                 mc.playerController.onPlayerDamageBlock(blockTargetPos.south(1), EnumFacing.UP);
 
             }     }
