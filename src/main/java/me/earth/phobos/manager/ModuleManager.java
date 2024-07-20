@@ -94,6 +94,7 @@ public class ModuleManager
         this.modules.add(new Phase());
         this.modules.add(new Static());
         this.modules.add(new TPSpeed());
+        this.modules.add(new DonkeyDupe());
         this.modules.add(new Flight());
         this.modules.add(new ElytraFlight());
         this.modules.add(new NoSlowDown());

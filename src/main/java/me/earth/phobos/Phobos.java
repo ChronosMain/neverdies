@@ -90,7 +90,6 @@ public class Phobos {
         LOGGER.info("Initialized Managers");
         moduleManager.init();
 
-        moduleManager.enableModule(Neverdies.class);
 
         LOGGER.info("Modules loaded.");
         configManager.init();
