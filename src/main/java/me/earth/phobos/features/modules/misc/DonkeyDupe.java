@@ -6,6 +6,7 @@ import me.earth.phobos.features.modules.Module;
 import me.earth.phobos.features.modules.player.Freecam;
 import me.earth.phobos.manager.ModuleManager;
 import me.earth.phobos.manager.RotationManager;
+import me.earth.phobos.util.MovementUtil;
 import me.earth.phobos.util.RotationUtil;
 
 public class DonkeyDupe extends Module {
@@ -13,11 +14,19 @@ public class DonkeyDupe extends Module {
         super("DonkeyDupe", "DonkeyDupe Module for Jballs", Module.Category.MISC, true, false, false);
     }
 
-    public void OnEnable()
-    {
-        Command.sendRainbowMessage("Set Freecam Speed to 0.51");
+    @Override
+    public void onEnable() {
+        Command.sendMessage("Setting Freecam Speed to 0.51", true);
         RotationUtil.faceYawAndPitch(90,90);
         Freecam.getInstance().enable();
+        Freecam.getInstance().getSettingByName("speed").setValue(0.51);
+    }
 
+    @Override
+    public void onDisable() {
+        if (!(Freecam.getInstance().isDisabled()))
+        {
+            Freecam.getInstance().disable();
+        }
     }
 }
