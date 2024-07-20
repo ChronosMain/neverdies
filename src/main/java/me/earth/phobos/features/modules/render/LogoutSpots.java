@@ -24,10 +24,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class LogoutSpots
         extends Module {
     private final Setting<Boolean> colorSync = this.register(new Setting<Boolean>("Sync", false));
-    private final Setting<Integer> red = this.register(new Setting<Integer>("Red", 255, 0, 255));
+    private final Setting<Integer> red = this.register(new Setting<Integer>("Red", 120, 0, 255));
     private final Setting<Integer> green = this.register(new Setting<Integer>("Green", 0, 0, 255));
-    private final Setting<Integer> blue = this.register(new Setting<Integer>("Blue", 0, 0, 255));
-    private final Setting<Integer> alpha = this.register(new Setting<Integer>("Alpha", 255, 0, 255));
+    private final Setting<Integer> blue = this.register(new Setting<Integer>("Blue", 255, 0, 255));
+    private final Setting<Integer> alpha = this.register(new Setting<Integer>("Alpha", 120, 0, 255));
     private final Setting<Boolean> scaleing = this.register(new Setting<Boolean>("Scale", false));
     private final Setting<Float> scaling = this.register(new Setting<Float>("Size", Float.valueOf(4.0f), Float.valueOf(0.1f), Float.valueOf(20.0f)));
     private final Setting<Float> factor = this.register(new Setting<Object>("Factor", Float.valueOf(0.3f), Float.valueOf(0.1f), Float.valueOf(1.0f), v -> this.scaleing.getValue()));
