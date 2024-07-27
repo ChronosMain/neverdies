@@ -4,6 +4,7 @@ import me.earth.phobos.event.events.PacketEvent;
 import me.earth.phobos.event.events.PushEvent;
 import me.earth.phobos.features.Feature;
 import me.earth.phobos.features.modules.Module;
+import me.earth.phobos.features.modules.misc.DonkeyDupe;
 import me.earth.phobos.features.setting.Setting;
 import me.earth.phobos.util.MathUtil;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
@@ -19,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class Freecam extends Module {
-    private static Freecam INSTANCE;
+    public static Freecam INSTANCE;
 
     static {
         Freecam.INSTANCE = new Freecam();
