@@ -49,7 +49,7 @@ public class Phase
     private int posLookPackets;
 
     public Phase() {
-        super("Phase", "Makes you able to phase through blocks.", Module.Category.MOVEMENT, true, false, false);
+        super("Phase", "Makes you able to phase through blocks.", Module.Category.MOVEMENT, true, true, false);
         this.setInstance();
     }
 
